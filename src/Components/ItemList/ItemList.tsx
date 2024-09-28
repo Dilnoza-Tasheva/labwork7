@@ -5,6 +5,8 @@ import './ItemList.css';
 interface Item {
     name: string;
     price: number;
+    image: string;
+    quantity?: number;
 }
 
 interface ItemProps {
@@ -20,6 +22,7 @@ const ItemList: React.FC<ItemProps> = ({items, addToOrder}) => {
                     <ItemButton
                         name={item.name}
                         price={item.price}
+                        image={item.image}
                         onClick={() => addToOrder(item)}
                     />
                 </div>

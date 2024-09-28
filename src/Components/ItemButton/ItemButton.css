@@ -1,3 +1,22 @@
 .item_btn {
     margin: 10px;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.item_btn:hover{
+    background-color: #80aded;
+}
+
+.item_image {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 8px;
+    margin-right: 10px;
+}
+
+.item_span {
+    margin-left: 10px;
 }

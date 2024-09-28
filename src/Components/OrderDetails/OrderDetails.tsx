@@ -5,7 +5,7 @@ import DeleteItemButton from "../DeleteItemButton/DeleteItemButton.tsx";
 interface Item {
     name: string;
     price: number;
-    quantity: number;
+    quantity?: number;
 }
 
 interface OrderDetailsProps {
@@ -22,7 +22,7 @@ const OrderDetails: React.FC<OrderDetailsProps> =({order, removeFromOrder, count
                 {order.length === 0 ? (
                     <p>Order is empty!</p>
                 ) : (
-                    <ul>
+                    <ul className="order_list">
                         {order.map((item, index) => (
                             <li key={index}>
                                 {item.name} {item.price} kgs x {item.quantity}

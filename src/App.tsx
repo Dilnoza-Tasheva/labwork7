@@ -2,6 +2,14 @@ import './App.css'
 import ItemList from "./Components/ItemList/ItemList.tsx";
 import OrderDetails from "./Components/OrderDetails/OrderDetails.tsx";
 import {useState} from "react";
+import burgerImage from './assets/burger.svg';
+import hotDogImage from './assets/hot-dog.svg';
+import tacoImage from './assets/taco.svg';
+import friesImage from './assets/fries.svg';
+import coffeeImage from './assets/coffee.svg';
+import teaImage from './assets/tea.svg';
+import juiceImage from './assets/juice.svg';
+import cokeImage from './assets/coke.svg';
 
 interface Item {
     name: string;
@@ -11,14 +19,14 @@ interface Item {
 
 const App = () => {
     const Items = [
-        {name: 'Burger', price: 90},
-        {name: 'Hot-Dog', price: 60},
-        {name: 'Quesadilla', price: 80},
-        {name: 'Fries', price: 30},
-        {name: 'Coffee', price: 25},
-        {name: 'Tea', price: 20},
-        {name: 'Juice', price: 18},
-        {name: 'Coke', price: 25},
+        {name: 'Burger', price: 90, image: burgerImage},
+        {name: 'Hot Dog', price: 60, image: hotDogImage},
+        {name: 'Taco', price: 80, image: tacoImage},
+        {name: 'Fries', price: 30, image: friesImage},
+        {name: 'Coffee', price: 25, image: coffeeImage},
+        {name: 'Tea', price: 20, image: teaImage},
+        {name: 'Juice', price: 18, image: juiceImage},
+        {name: 'Coke', price: 25, image: cokeImage},
     ]
 
     const [order, setOrder] = useState<Item[]>([]);

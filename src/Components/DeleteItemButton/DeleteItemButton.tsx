@@ -1,4 +1,5 @@
 import * as React from "react";
+import './DeleteItemButton.css';
 
 interface PropsBtn {
     onClick: () => void;

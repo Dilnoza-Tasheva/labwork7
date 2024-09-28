@@ -1,4 +1,13 @@
 .order_details {
     border-radius: 10px;
-    border: 1px solid grey;
+    border: 1px solid lightgrey;
+    padding: 10px;
+}
+
+.order_list {
+    list-style-type: none;
+}
+
+.order_list li {
+    margin-top: 10px;
 }
