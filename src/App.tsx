@@ -43,9 +43,15 @@ const App = () => {
         );
     };
 
+    const countTotalSum = (items: Items[]) => {
+        return items.reduce((acc, item) => {
+                return acc + (item.quantity * item.price);
+        }, 0)
+    };
+
   return (
       <div className="container">
-          <OrderDetails order={order} removeFromOrder={removeFromOrder}/>
+          <OrderDetails order={order} removeFromOrder={removeFromOrder} countTotalSum={countTotalSum}/>
           <div>
               <h3>Add items:</h3>
               <ItemList items={Items} addToOrder={addToOrder}/>

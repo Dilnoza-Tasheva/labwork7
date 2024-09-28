@@ -11,9 +11,10 @@ interface Item {
 interface OrderDetailsProps {
     order: Item[];
     removeFromOrder: (name: string) => void;
+    countTotalSum: (items: Item[]) => number;
 }
 
-const OrderDetails: React.FC<OrderDetailsProps> =({order, removeFromOrder}) => {
+const OrderDetails: React.FC<OrderDetailsProps> =({order, removeFromOrder, countTotalSum}) => {
     return (
         <div>
             <h3>Order details:</h3>
@@ -26,8 +27,6 @@ const OrderDetails: React.FC<OrderDetailsProps> =({order, removeFromOrder}) => {
                             <li key={index}>
                                 {item.name} {item.price} kgs x {item.quantity}
                                 <DeleteItemButton
-                                    name={item.name}
-                                    price={item.price}
                                     onClick={() => removeFromOrder(item.name) }
                                 />
                             </li>
@@ -35,6 +34,7 @@ const OrderDetails: React.FC<OrderDetailsProps> =({order, removeFromOrder}) => {
                     </ul>
                 )}
             </div>
+            <h4>Total sum: {countTotalSum(order)} kgs</h4>
         </div>
     );
 };
