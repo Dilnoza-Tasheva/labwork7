@@ -1,6 +1,12 @@
 import './App.css'
 import ItemList from "./Components/ItemList/ItemList.tsx";
 import OrderDetails from "./Components/OrderDetails/OrderDetails.tsx";
+import {useState} from "react";
+
+interface Item {
+    name: string;
+    price: number;
+}
 
 const App = () => {
     const Items = [
@@ -14,12 +20,18 @@ const App = () => {
         {name: 'Coke', price: 25},
     ]
 
+    const [order, setOrder] = useState<Item[]>([]);
+
+    const addToOrder = (item: Item) => {
+        setOrder([...order, item]);
+    };
+
   return (
       <div className="container">
-          <OrderDetails />
+          <OrderDetails order={order}/>
           <div>
               <h3>Add items:</h3>
-              <ItemList items={Items}/>
+              <ItemList items={Items} addToOrder={addToOrder}/>
           </div>
       </div>
   )
