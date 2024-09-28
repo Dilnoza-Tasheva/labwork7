@@ -37,9 +37,15 @@ const App = () => {
         });
     };
 
+    const removeFromOrder = (name: string) => {
+        setOrder(prevItems =>
+        prevItems.filter(item => item.name !== name)
+        );
+    };
+
   return (
       <div className="container">
-          <OrderDetails order={order}/>
+          <OrderDetails order={order} removeFromOrder={removeFromOrder}/>
           <div>
               <h3>Add items:</h3>
               <ItemList items={Items} addToOrder={addToOrder}/>
