@@ -6,6 +6,7 @@ import {useState} from "react";
 interface Item {
     name: string;
     price: number;
+    quantity: number;
 }
 
 const App = () => {
@@ -23,7 +24,17 @@ const App = () => {
     const [order, setOrder] = useState<Item[]>([]);
 
     const addToOrder = (item: Item) => {
-        setOrder([...order, item]);
+        setOrder(prevItems => {
+            const existingItem = prevItems.find(i => i.name === item.name);
+
+            if (existingItem) {
+                return prevItems.map(i=>
+                i.name === item.name ? {...i, quantity: i.quantity + 1}: i
+                );
+            } else {
+                return [...prevItems, {...item, quantity: 1}];
+            }
+        });
     };
 
   return (

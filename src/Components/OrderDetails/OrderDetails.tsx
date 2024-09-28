@@ -4,6 +4,7 @@ import * as React from "react";
 interface Item {
     name: string;
     price: number;
+    quantity: number;
 }
 
 interface OrderDetailsProps {
@@ -21,7 +22,8 @@ const OrderDetails: React.FC<OrderDetailsProps> =({order}) => {
                     <ul>
                         {order.map((item, index) => (
                             <li key={index}>
-                                {item.name} {item.price} kgs
+                                {item.name} {item.price} kgs x {item.quantity}
+                                <button>X</button>
                             </li>
                         ))}
                     </ul>
